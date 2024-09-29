@@ -9,6 +9,11 @@ const authConfig = {
     }),
   ],
   secret: process.env.VITE_NEXTAUTH_SECRET,
+  callbacks: {
+    authorized({ auth, request }) {
+      return !!auth?.user;
+    },
+  },
 };
 
 export const {
